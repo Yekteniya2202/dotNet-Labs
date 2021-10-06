@@ -35,6 +35,13 @@ namespace InsuranseCompanyCL
             Number = NewNumber;
         }
 
+        public InsuranseBranch(InsuranseBranch branch)
+        {
+            Number = branch.Number;
+            Name = branch.Name;
+            Address = branch.Address;
+            PhoneNumber = branch.PhoneNumber;
+        }
         public InsuranseBranch(string name, string address, string phoneNumber)
         {
             Number = NewNumber;

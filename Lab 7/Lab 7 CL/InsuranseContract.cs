@@ -14,6 +14,13 @@ namespace InsuranseCompanyCL
             Number = NewNumber;
         }
 
+        //Глубокое копирование
+        public InsuranseContract(InsuranseContract contract)
+        {
+            Number = contract.Number;
+            Branch = new InsuranseBranch(contract.Branch);
+            InsuranceType = new InsuranseType(contract.InsuranceType);
+        }
         public InsuranseContract(InsuranseType type, InsuranseBranch branch)
         {
             Number = NewNumber;

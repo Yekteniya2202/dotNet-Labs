@@ -33,7 +33,15 @@ namespace InsuranseCompanyCL
             Number = NewNumber;
         }
 
-        public bool IsValid { 
+        public InsuranseType(InsuranseType type)
+        {
+
+            Number = type.Number;
+            InsuranseName = type.InsuranseName;
+        }
+
+        public bool IsValid
+        {
             get
             {
                 return string.IsNullOrWhiteSpace(InsuranseName) == false;

@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <RootNamespace>Lab_7_App</RootNamespace>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Lab 7 CL\Lab 7 CL.csproj" />
+    <ProjectReference Include="..\Lab 7 WFC\Lab 7 WFC.csproj" />
+  </ItemGroup>
+
+</Project>

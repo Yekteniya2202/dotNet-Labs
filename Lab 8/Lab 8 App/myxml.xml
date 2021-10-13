@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<InsuranseCompanySerializable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Types>
+    <InsuranseType>
+      <InsuranseName>zvcsszcf</InsuranseName>
+    </InsuranseType>
+  </Types>
+  <Branches>
+    <InsuranseBranch>
+      <Name>zxcvzxcvasd</Name>
+      <Address>asdfasdf</Address>
+      <PhoneNumber>(111) 111-1111</PhoneNumber>
+    </InsuranseBranch>
+  </Branches>
+  <Contracts>
+    <InsuranseContractSerializable>
+      <Number>1</Number>
+      <BranchNumber>1</BranchNumber>
+      <TypeNumber>1</TypeNumber>
+      <DateOfConclusion>2021-10-02T00:00:00</DateOfConclusion>
+      <Amount>3</Amount>
+      <TarifRate>0.00030</TarifRate>
+    </InsuranseContractSerializable>
+  </Contracts>
+</InsuranseCompanySerializable>

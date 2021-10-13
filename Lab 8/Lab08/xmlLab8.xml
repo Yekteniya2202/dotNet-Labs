@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HotelSerializable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Clients>
+    <Client>
+      <ClientId>1</ClientId>
+      <FirstName>ываыфав</FirstName>
+      <MiddleName>ывапыварчсми</MiddleName>
+      <LastName>фцывафыв</LastName>
+      <Passport>
+        <Number>000000</Number>
+        <Seria>0000</Seria>
+        <Date>2021-10-13T00:00:00+03:00</Date>
+        <Issuer>йкцууцк</Issuer>
+      </Passport>
+    </Client>
+  </Clients>
+  <Rooms>
+    <Room>
+      <Number>1</Number>
+      <Category>Econom</Category>
+      <PayByDay>100</PayByDay>
+      <PlaceCount>2</PlaceCount>
+    </Room>
+  </Rooms>
+  <Settlements>
+    <SettlementSerializable>
+      <RoomId>1</RoomId>
+      <ClientId>1</ClientId>
+      <StartDate>2021-10-05T20:22:16</StartDate>
+      <EndDate>2021-10-13T20:22:16.6413054+03:00</EndDate>
+    </SettlementSerializable>
+  </Settlements>
+</HotelSerializable>

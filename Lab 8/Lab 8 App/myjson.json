@@ -1,0 +1,28 @@
+{
+  "Types": [
+    {
+      "InsuranseName": "zvcsszcf",
+      "Number": 1,
+      "IsValid": true
+    }
+  ],
+  "Branches": [
+    {
+      "Number": 1,
+      "Name": "zxcvzxcvasd",
+      "Address": "asdfasdf",
+      "PhoneNumber": "(111) 111-1111",
+      "IsValid": true
+    }
+  ],
+  "Contracts": [
+    {
+      "Number": 1,
+      "BranchNumber": 1,
+      "TypeNumber": 1,
+      "DateOfConclusion": "2021-10-02T00:00:00",
+      "Amount": 3.0,
+      "TarifRate": 0.00030
+    }
+  ]
+}

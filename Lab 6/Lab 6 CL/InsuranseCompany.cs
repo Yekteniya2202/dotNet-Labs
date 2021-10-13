@@ -100,7 +100,7 @@ namespace InsuranseCompanyCL
         {
             if (!type.IsValid)
             {
-                throw new InvalidTypeException("Информация о клиент заполнена некорректно");
+                throw new InvalidTypeException("Информация о типе договора заполнена некорректно");
             }
             try
             {
@@ -110,7 +110,7 @@ namespace InsuranseCompanyCL
             }
             catch (System.Exception exception)
             {
-                throw new InvalidTypeException("При добавлении клиента произошла ошибка", exception);
+                throw new InvalidTypeException("При добавлении типа договора произошла ошибка", exception);
             }
         }
         /// <summary>
@@ -121,7 +121,7 @@ namespace InsuranseCompanyCL
         {
             if (!branch.IsValid)
             {
-                throw new InvalidBranchException("Информация о номере заполнена некорректно");
+                throw new InvalidBranchException("Информация о филиале заполнена некорректно");
             }
             try
             {
@@ -131,7 +131,7 @@ namespace InsuranseCompanyCL
             }
             catch (System.Exception exception)
             {
-                throw new InvalidBranchException("При добавлении номера произошла ошибка", exception);
+                throw new InvalidBranchException("При добавлении филиала произошла ошибка", exception);
             }
         }
         /// <summary>
@@ -142,7 +142,7 @@ namespace InsuranseCompanyCL
         {
             if (!contract.IsValid)
             {
-                throw new InvalidContractException("Информация о заселении заполнена некорректно");
+                throw new InvalidContractException("Информация о договоре заполнена некорректно");
             }
             try
             {
@@ -152,7 +152,7 @@ namespace InsuranseCompanyCL
             }
             catch (System.Exception exception)
             {
-                throw new InvalidContractException("При поселении произошла ошибка", exception);
+                throw new InvalidContractException("При добавлении договора произошла ошибка", exception);
             }
         }
         /// <summary>

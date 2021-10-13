@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using InsuranseCompanyCL;
 using Lab_5_App;
+using Lab_6_CL.Exception;
 
 namespace InsuranseCompanyForms
 {
@@ -153,9 +154,18 @@ namespace InsuranseCompanyForms
             {
                 var type = InsuranseTypeListView.SelectedItems[0].Tag as InsuranseType;
                 _typeForm.Type = type;
-                if (_typeForm.ShowDialog() == DialogResult.OK)
+                try
                 {
-                    InsuranseTypeListView.SelectedItems[0].Text = _typeForm.Type.InsuranseName;
+                    if (_typeForm.ShowDialog() == DialogResult.OK)
+                    {
+                        if(_typeForm.Type.IsValid == false) throw new InvalidTypeException("Неверно отредактирован тип страхования");
+                        InsuranseTypeListView.SelectedItems[0].Text = _typeForm.Type.InsuranseName;
+                    }
+                }
+                catch(InvalidTypeException ex)
+                {
+                    _typeForm.Type = type;
+                    MessageBox.Show(ex.Message);
                 }
             }
             catch (Exception)
@@ -187,12 +197,21 @@ namespace InsuranseCompanyForms
             {
                 var branch = InsuranseBranchListView.SelectedItems[0].Tag as InsuranseBranch;
                 _branchForm.Branch = branch;
-                if (_branchForm.ShowDialog() == DialogResult.OK)
+                try
                 {
-                    var row = InsuranseBranchListView.SelectedItems[0].SubItems;
-                    row[0].Text = _branchForm.Branch.Name;
-                    row[1].Text = _branchForm.Branch.Address;
-                    row[2].Text = _branchForm.Branch.PhoneNumber;
+                    if (_typeForm.ShowDialog() == DialogResult.OK)
+                    {
+                        if (_branchForm.Branch.IsValid == false) throw new InvalidBranchException("Неверно отредактирован филиал");
+                        var row = InsuranseBranchListView.SelectedItems[0].SubItems;
+                        row[0].Text = _branchForm.Branch.Name;
+                        row[1].Text = _branchForm.Branch.Address;
+                        row[2].Text = _branchForm.Branch.PhoneNumber;
+                    }
+                }
+                catch (InvalidBranchException ex)
+                {
+                    _branchForm.Branch = branch;
+                    MessageBox.Show(ex.Message);
                 }
             }
             catch (Exception)
@@ -222,16 +241,26 @@ namespace InsuranseCompanyForms
         {
             try
             {
-                var contract = InsuranseTypeListView.SelectedItems[0].Tag as InsuranseContract;
+                var contract = InsuranseContractListView.SelectedItems[0].Tag as InsuranseContract;
                 _contractForm.Contract = contract;
-                if (_contractForm.ShowDialog() == DialogResult.OK)
+                try
                 {
-                    var row = InsuranseContractListView.SelectedItems[0].SubItems;
-                    row[0].Text = contract.DateOfConclusion.ToString();
-                    row[0].Text = contract.Amount.ToString();
-                    row[0].Text = contract.TarifRate.ToString();
-                    row[0].Text = contract.Branch.Name;
-                    row[0].Text = contract.InsuranceType.InsuranseName;
+                    if (_contractForm.ShowDialog() == DialogResult.OK)
+                    {
+                        if (_contractForm.Contract.IsValid == false) throw new InvalidContractException("Неверно отредактирован договор");
+                        var row = InsuranseContractListView.SelectedItems[0].SubItems;
+                        row[0].Text = contract.Number.ToString();
+                        row[1].Text = contract.DateOfConclusion.ToString();
+                        row[2].Text = contract.Amount.ToString();
+                        row[3].Text = contract.TarifRate.ToString();
+                        row[4].Text = contract.Branch.Name;
+                        row[5].Text = contract.InsuranceType.InsuranseName;
+                    }
+                }
+                catch (InvalidContractException ex)
+                {
+                    _contractForm.Contract = contract;
+                    MessageBox.Show(ex.Message);
                 }
             }
             catch (Exception)
@@ -254,7 +283,7 @@ namespace InsuranseCompanyForms
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Не выбрана строка с клиентом");
+                    MessageBox.Show("Не выбрана строка с типом страхования");
                 }
             }
         }
@@ -273,7 +302,7 @@ namespace InsuranseCompanyForms
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Не выбрана строка с клиентом");
+                    MessageBox.Show("Не выбрана строка с филиалом");
                 }
             }
         }
@@ -292,7 +321,7 @@ namespace InsuranseCompanyForms
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("Не выбрана строка с договором");
                 }
             }
         }

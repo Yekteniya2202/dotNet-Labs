@@ -33,6 +33,13 @@ namespace InsuranseCompanyCL
             Number = NewNumber;
         }
 
+        public InsuranseType(InsuranseType type)
+        {
+
+            Number = type.Number;
+            InsuranseName = type.InsuranseName;
+        }
+
         public bool IsValid { 
             get
             {

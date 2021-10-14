@@ -20,7 +20,7 @@ namespace InsuranseCompanyCL
             }
         }
 
-        public int Number { get; }
+        public int Number { get; set; }
 
         public InsuranseType(string insuranseName)
         {

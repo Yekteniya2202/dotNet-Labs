@@ -22,7 +22,7 @@ namespace InsuranseCompanyCL
                 _newNumber = value;
             }
         }
-        public int Number { get; }
+        public int Number { get; set; }
         /// <summary>
         /// Наименование филиала
         /// </summary>

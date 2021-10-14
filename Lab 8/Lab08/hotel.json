@@ -1,0 +1,60 @@
+{
+  "Clients": [
+    {
+      "ClientId": 1,
+      "FirstName": "qqq",
+      "MiddleName": "qqqqq",
+      "LastName": "qqqqqq",
+      "Passport": {
+        "Number": "000000",
+        "Seria": "0000",
+        "Date": "2021-10-14T00:00:00+03:00",
+        "Issuer": "wwwwwwww"
+      },
+      "IsValid": true
+    },
+    {
+      "ClientId": 2,
+      "FirstName": "wwwww",
+      "MiddleName": "wwwwww",
+      "LastName": "wwwwwwwwww",
+      "Passport": {
+        "Number": "000000",
+        "Seria": "0000",
+        "Date": "2021-10-14T00:00:00+03:00",
+        "Issuer": "eeeeeeeee"
+      },
+      "IsValid": true
+    }
+  ],
+  "Rooms": [
+    {
+      "Number": 1,
+      "Category": 0,
+      "PayByDay": 100.0,
+      "PlaceCount": 2,
+      "IsValid": true
+    },
+    {
+      "Number": 2,
+      "Category": 0,
+      "PayByDay": 100.0,
+      "PlaceCount": 2,
+      "IsValid": true
+    }
+  ],
+  "Settlements": [
+    {
+      "RoomId": 1,
+      "ClientId": 1,
+      "StartDate": "2021-10-13T19:02:52",
+      "EndDate": "2021-10-14T19:02:52.8498081+03:00"
+    },
+    {
+      "RoomId": 2,
+      "ClientId": 2,
+      "StartDate": "2021-10-13T19:03:01",
+      "EndDate": "2021-10-14T19:03:01"
+    }
+  ]
+}

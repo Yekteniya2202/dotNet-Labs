@@ -20,17 +20,17 @@ namespace Lab_7_CL.Serialization
         /// Словарь типов страхования
         /// 
         /// </summary>
-        public  List<InsuranseType> Types { get; } = new List<InsuranseType>();
+        public  List<InsuranseType> Types { get; set; } = new List<InsuranseType>();
 
         /// <summary>
         /// Словарь филиалов
         /// </summary>
-        public  List<InsuranseBranch> Branches { get; } = new List<InsuranseBranch>();
+        public  List<InsuranseBranch> Branches { get; set; } = new List<InsuranseBranch>();
 
         /// <summary>
         /// Словарь страховых договоров
         /// </summary>
-        public  List<InsuranseContractSerializable> Contracts { get; } = new List<InsuranseContractSerializable>();
+        public  List<InsuranseContractSerializable> Contracts { get; set; } = new List<InsuranseContractSerializable>();
 
         public static void Save(string fileName, SerializeType serType)
         {

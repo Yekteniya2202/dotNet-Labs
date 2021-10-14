@@ -55,12 +55,12 @@ namespace InsuranseCompanyCL
         /// <summary>
         /// Филиал
         /// </summary>
-        public InsuranseBranch Branch { get; set; } = new InsuranseBranch();
+        public InsuranseBranch Branch { get; set; }
 
         /// <summary>
         /// Вид страхования
         /// </summary>
-        public InsuranseType InsuranceType { get; set; } = new InsuranseType();
+        public InsuranseType InsuranceType { get; set; }
 
         public bool IsValid
         {

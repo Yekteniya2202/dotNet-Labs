@@ -1,0 +1,48 @@
+{
+  "Types": [
+    {
+      "InsuranseName": "qqqqqqq",
+      "Number": 1,
+      "IsValid": true
+    },
+    {
+      "InsuranseName": "sssssssss",
+      "Number": 2,
+      "IsValid": true
+    }
+  ],
+  "Branches": [
+    {
+      "Number": 1,
+      "Name": "wwwwwww",
+      "Address": "wwwwwwwwww1",
+      "PhoneNumber": "(111) 111-1111",
+      "IsValid": true
+    },
+    {
+      "Number": 2,
+      "Name": "sssss",
+      "Address": "ssssss",
+      "PhoneNumber": "(444) 444-4444",
+      "IsValid": true
+    }
+  ],
+  "Contracts": [
+    {
+      "Number": 1,
+      "BranchNumber": 1,
+      "TypeNumber": 1,
+      "DateOfConclusion": "2021-10-14T00:00:00+03:00",
+      "Amount": 1.0,
+      "TarifRate": 0.003
+    },
+    {
+      "Number": 2,
+      "BranchNumber": 2,
+      "TypeNumber": 2,
+      "DateOfConclusion": "2021-10-14T00:00:00+03:00",
+      "Amount": 2.0,
+      "TarifRate": 0.0300
+    }
+  ]
+}

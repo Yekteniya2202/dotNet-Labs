@@ -16,9 +16,16 @@ namespace RiverClient
 {
     public partial class FindRiver : Form
     {
+        private River _river;
         public FindRiver()
         {
             InitializeComponent();
+        }
+
+        public FindRiver(River river)
+        {
+            InitializeComponent();
+            _river = river;
         }
 
         private void buttonFindRiver_Click(object sender1, EventArgs e)
@@ -58,6 +65,15 @@ namespace RiverClient
             byte[] msg = Encoding.UTF8.GetBytes(jsonRequest);
             // Отправляем данные через сокет
             sender.Send(msg);
+
+            int bytesRec = sender.Receive(bytes);
+
+            RiverResponse rr = JsonConvert.DeserializeObject<RiverResponse>(Encoding.UTF8.GetString(bytes, 0, bytesRec));
+            if (rr.IsSuccess == false)
+            {
+                throw new ApplicationException(rr.ErrorMessage);
+            }
+            _river = rr.River;
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

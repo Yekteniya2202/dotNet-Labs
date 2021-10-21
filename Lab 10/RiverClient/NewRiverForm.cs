@@ -69,6 +69,15 @@ namespace RiverClient
                 byte[] msg = Encoding.UTF8.GetBytes(jsonRequest);
                 // Отправляем данные через сокет
                 sender.Send(msg);
+
+                int bytesRec = sender.Receive(bytes);
+
+                RiverResponse rr = JsonConvert.DeserializeObject<RiverResponse>(Encoding.UTF8.GetString(bytes, 0, bytesRec));
+
+                if (rr.IsSuccess == false)
+                {
+                    throw new ApplicationException(rr.ErrorMessage);
+                }
             }
             catch (Exception ex)
             {

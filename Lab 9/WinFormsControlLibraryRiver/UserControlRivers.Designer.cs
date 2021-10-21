@@ -1,7 +1,7 @@
 ﻿
 namespace WinFormsControlLibraryRiver
 {
-    partial class UserControl1
+    partial class UserControlRivers
     {
         /// <summary>
         /// Required designer variable.

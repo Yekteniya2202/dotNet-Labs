@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Concurrent;
+using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using ClassLibraryRivers;
 using Newtonsoft.Json;
@@ -12,6 +14,27 @@ namespace Server
     class Program
     {
         private static ConcurrentDictionary<string, River> _rivers = new ConcurrentDictionary<string, River>();
+        static void save_th()
+        {
+            while (true)
+            {
+                Thread.Sleep(10000);
+
+                try
+                {
+                    using (StreamWriter jsonStreamWriter = File.CreateText("rivers.json"))
+                    {
+                        JsonSerializer jsonSerializer = new JsonSerializer { Formatting = Formatting.Indented };
+                        jsonSerializer.Serialize(jsonStreamWriter, _rivers);
+                    }
+                    Console.WriteLine("Данные сохранены");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Не удалось сохранить данные!");
+                }
+            }
+        }
         static void Main(string[] args)
         {
             // Устанавливаем для сокета локальную конечную точку
@@ -22,11 +45,29 @@ namespace Server
             // Создаем сокет Tcp/Ip
             Socket sListener = new Socket(ipAddr.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
 
+            //Подтягиваем данные с диска
+            try
+            {
+                StreamReader jsonStreamReader = File.OpenText("rivers.json");
+                JsonSerializer jsonSerializer = new JsonSerializer();
+                _rivers = (ConcurrentDictionary<string, River>)jsonSerializer.Deserialize(jsonStreamReader, typeof(ConcurrentDictionary<string, River>));
+                jsonStreamReader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Нет сохраненных данных на диске");
+            }
+
             // Назначаем сокет локальной конечной точке и слушаем входящие сокеты
             try
             {
                 sListener.Bind(ipEndPoint);
                 sListener.Listen(10);
+
+                //запускаем сохранения раз в 10сек
+                Thread th = new Thread(save_th);
+                th.Start();
+
                 // Начинаем слушать соединения
                 while (true)
                 {
@@ -40,6 +81,7 @@ namespace Server
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
+                Console.ReadLine();
             }
             finally
             {

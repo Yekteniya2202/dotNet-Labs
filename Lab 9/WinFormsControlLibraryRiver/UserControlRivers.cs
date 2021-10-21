@@ -4,15 +4,15 @@ using ClassLibraryRivers;
 
 namespace WinFormsControlLibraryRiver
 {
-    public partial class UserControl1 : UserControl
+    public partial class UserControlRivers : UserControl
     {
         public River River { get; set; }
-        public UserControl1()
+        public UserControlRivers()
         {
             InitializeComponent();
 
         }
-        public UserControl1(River river, string key) : this()
+        public UserControlRivers(River river, string key) : this()
         {
             River = river;
             textBoxRiverKey.Text = key;

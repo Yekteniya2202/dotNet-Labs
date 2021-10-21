@@ -83,7 +83,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptographyExample", "Lab 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EncodingForm", "Lab 9\EncodingForm\EncodingForm.csproj", "{C69CB822-0FFE-48A5-954E-206435603145}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegexConsoleApplication", "Lab 9\RegexConsoleApplication\RegexConsoleApplication.csproj", "{06D4FF63-4EC5-4C97-B273-C0EABF7FE992}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegexConsoleApplication", "Lab 9\RegexConsoleApplication\RegexConsoleApplication.csproj", "{06D4FF63-4EC5-4C97-B273-C0EABF7FE992}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lab 10", "Lab 10", "{B9D8525B-1260-4B47-84CA-423A0527C41B}"
 EndProject
@@ -93,13 +93,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Lab 10\Server\Ser
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestClient", "Lab 10\TestClient\TestClient.csproj", "{4E5355CA-618B-4D1B-B2A6-17C852A2802B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiverServer", "Lab 10\RiverServer\RiverServer.csproj", "{49169059-4A49-4933-AA34-55CC3C6B094A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RiverServer", "Lab 10\RiverServer\RiverServer.csproj", "{49169059-4A49-4933-AA34-55CC3C6B094A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryRivers", "Lab 10\ClassLibraryRivers\ClassLibraryRivers.csproj", "{E47B8908-1203-4141-8943-E6DB0B1BD8E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibraryRivers", "Lab 10\ClassLibraryRivers\ClassLibraryRivers.csproj", "{E47B8908-1203-4141-8943-E6DB0B1BD8E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiverClient", "Lab 10\RiverClient\RiverClient.csproj", "{3EFCD048-E320-4C83-BB10-EF0CA48DC733}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsControlLibraryRiver", "Lab 9\WinFormsControlLibraryRiver\WinFormsControlLibraryRiver.csproj", "{962E01E9-B70C-4ED0-9309-D205F00A59D9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiverForm", "Lab 10\RiverForm\RiverForm.csproj", "{66920B82-4E83-4867-944F-D2F24015ECC1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -255,14 +253,10 @@ Global
 		{E47B8908-1203-4141-8943-E6DB0B1BD8E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E47B8908-1203-4141-8943-E6DB0B1BD8E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E47B8908-1203-4141-8943-E6DB0B1BD8E7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3EFCD048-E320-4C83-BB10-EF0CA48DC733}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3EFCD048-E320-4C83-BB10-EF0CA48DC733}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3EFCD048-E320-4C83-BB10-EF0CA48DC733}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3EFCD048-E320-4C83-BB10-EF0CA48DC733}.Release|Any CPU.Build.0 = Release|Any CPU
-		{962E01E9-B70C-4ED0-9309-D205F00A59D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{962E01E9-B70C-4ED0-9309-D205F00A59D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{962E01E9-B70C-4ED0-9309-D205F00A59D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{962E01E9-B70C-4ED0-9309-D205F00A59D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66920B82-4E83-4867-944F-D2F24015ECC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66920B82-4E83-4867-944F-D2F24015ECC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66920B82-4E83-4867-944F-D2F24015ECC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66920B82-4E83-4867-944F-D2F24015ECC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -305,8 +299,7 @@ Global
 		{4E5355CA-618B-4D1B-B2A6-17C852A2802B} = {B9D8525B-1260-4B47-84CA-423A0527C41B}
 		{49169059-4A49-4933-AA34-55CC3C6B094A} = {B9D8525B-1260-4B47-84CA-423A0527C41B}
 		{E47B8908-1203-4141-8943-E6DB0B1BD8E7} = {B9D8525B-1260-4B47-84CA-423A0527C41B}
-		{3EFCD048-E320-4C83-BB10-EF0CA48DC733} = {B9D8525B-1260-4B47-84CA-423A0527C41B}
-		{962E01E9-B70C-4ED0-9309-D205F00A59D9} = {B9D8525B-1260-4B47-84CA-423A0527C41B}
+		{66920B82-4E83-4867-944F-D2F24015ECC1} = {B9D8525B-1260-4B47-84CA-423A0527C41B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BAF1F624-C923-4C1A-A83B-571F2880F5CB}

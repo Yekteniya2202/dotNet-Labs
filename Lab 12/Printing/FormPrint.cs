@@ -11,13 +11,9 @@ using System.IO;
 
 namespace Printing
 {
-    class TextLineInformation
-    {
-        public string Text;
-        public uint Width;
-    }
+    
 
-    public partial class Form1 : Form
+    public partial class FormPrint : Form
     {
         #region constant fields
             private const string standardTitle = "CapsEditor";
@@ -56,7 +52,7 @@ namespace Printing
             // set to true if document has some data in it
         #endregion
 
-        public Form1()
+        public FormPrint()
         {
             InitializeComponent();
 
@@ -328,5 +324,10 @@ namespace Printing
             printingPageNo++;
         }
 
+    }
+    class TextLineInformation
+    {
+        public string Text;
+        public uint Width;
     }
 }

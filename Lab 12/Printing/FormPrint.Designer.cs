@@ -1,6 +1,6 @@
 namespace Printing
 {
-    partial class Form1
+    partial class FormPrint
     {
         /// <summary>
         /// Required designer variable.

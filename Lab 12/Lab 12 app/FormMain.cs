@@ -102,5 +102,40 @@ namespace Lab_12_app
             this.citiesBindingSource.EndEdit();
             this.citiesTableAdapter.Update(this.countriesDBDataSet.Cities);
         }
+
+        private void printToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            printPreviewDialog.ShowDialog();
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Font font = new Font("Arial", 14, FontStyle.Regular, GraphicsUnit.Pixel);
+
+            float leftMargin = e.MarginBounds.Left;
+            float topMargin = e.MarginBounds.Top;
+            float yPos = 0;
+            int i = 0;
+
+            var row = (DataRowView)countriesBindingSource.Current;
+
+            var strArr = new string[5];
+            var itemArr = row.Row.ItemArray;
+            strArr[0] = "Country ID = " + ((int)itemArr[0]).ToString();
+            strArr[1] = "Country Name = " + itemArr[1];
+            strArr[2] = "Country Polity = " + itemArr[2];
+            strArr[3] = "Country Flag = " + (DBNull.Value.Equals(itemArr[3]) ? "none" : "");
+            foreach (var str in strArr)
+            {
+                yPos = topMargin + i * font.GetHeight(e.Graphics);
+                e.Graphics.DrawString(str, font, Brushes.Black, leftMargin, yPos, new StringFormat());
+
+                i++;
+            }
+            e.HasMorePages = false;
+
+            if (pictureBoxFlag.Image != null)
+                e.Graphics.DrawImage(pictureBoxFlag.Image, leftMargin, topMargin + i * font.GetHeight(e.Graphics));
+        }
     }
 }

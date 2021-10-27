@@ -146,5 +146,51 @@ namespace Lab_12_app
             if (pictureBoxFlag.Image != null)
                 e.Graphics.DrawImage(pictureBoxFlag.Image, leftMargin, topMargin + i * font.GetHeight(e.Graphics));
         }
+
+        private void dataGridViewCountries_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.ThrowException = false;
+
+            string msg = "Ошибка в " + dataGridViewCountries.Columns[e.ColumnIndex].HeaderText + "\n\n" + e.Exception.Message;
+            MessageBox.Show(msg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            e.Cancel = false;
+        }
+
+        private void dataGridViewCities_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.ThrowException = false;
+
+            string msg = "Ошибка в " + dataGridViewCities.Columns[e.ColumnIndex].HeaderText + "\n\n" + e.Exception.Message;
+            MessageBox.Show(msg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            errorProviderCities.SetError(dataGridViewCities, "Неправильный ввод!");
+            e.Cancel = false;
+        }
+
+        private void textBoxCountryName_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBoxCountryName.Text))
+            {
+                errorProviderCountryName.SetError(textBoxCountryName, "Не указано название страны");
+            }
+        }
+
+        private void textBoxCOuntryPolity_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBoxCOuntryPolity.Text))
+            {
+                errorProviderCountryName.SetError(textBoxCOuntryPolity, "Не указано название страны");
+            }
+        }
+
+        private void dataGridViewCities_Validating(object sender, CancelEventArgs e)
+        {
+            /*
+            if (string.IsNullOrEmpty(dataGridViewCities.Columns.))
+            {
+                errorProviderCountryName.SetError(textBoxCOuntryPolity, "Не указано название страны");
+            }
+            */
+        }
     }
 }

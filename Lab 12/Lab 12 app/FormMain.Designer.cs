@@ -36,6 +36,7 @@ namespace Lab_12_app
             this.uploadCountriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uploadCitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uploadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageCountries = new System.Windows.Forms.TabPage();
@@ -110,7 +111,6 @@ namespace Lab_12_app
             this.citiesTableAdapter = new Lab_12_app.CountriesDBDataSetTableAdapters.CitiesTableAdapter();
             this.errorProviderCities = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderCountries = new System.Windows.Forms.ErrorProvider(this.components);
-            this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printPreviewDialog = new System.Windows.Forms.PrintDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.menuStrip1.SuspendLayout();
@@ -145,7 +145,7 @@ namespace Lab_12_app
             this.exitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(871, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(871, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -156,7 +156,7 @@ namespace Lab_12_app
             this.uploadCitiesToolStripMenuItem,
             this.uploadToolStripMenuItem});
             this.dBToolStripMenuItem.Name = "dBToolStripMenuItem";
-            this.dBToolStripMenuItem.Size = new System.Drawing.Size(43, 24);
+            this.dBToolStripMenuItem.Size = new System.Drawing.Size(43, 26);
             this.dBToolStripMenuItem.Text = "DB";
             // 
             // uploadCountriesToolStripMenuItem
@@ -179,10 +179,17 @@ namespace Lab_12_app
             this.uploadToolStripMenuItem.Size = new System.Drawing.Size(265, 26);
             this.uploadToolStripMenuItem.Text = "Upload ";
             // 
+            // printToolStripMenuItem
+            // 
+            this.printToolStripMenuItem.Name = "printToolStripMenuItem";
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(53, 26);
+            this.printToolStripMenuItem.Text = "Print";
+            this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
+            // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(47, 24);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(47, 26);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -191,10 +198,10 @@ namespace Lab_12_app
             this.tabControl1.Controls.Add(this.tabPageCountries);
             this.tabControl1.Controls.Add(this.tabPageCities);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 28);
+            this.tabControl1.Location = new System.Drawing.Point(0, 30);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(871, 509);
+            this.tabControl1.Size = new System.Drawing.Size(871, 507);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPageCountries
@@ -204,7 +211,7 @@ namespace Lab_12_app
             this.tabPageCountries.Location = new System.Drawing.Point(4, 25);
             this.tabPageCountries.Name = "tabPageCountries";
             this.tabPageCountries.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCountries.Size = new System.Drawing.Size(863, 480);
+            this.tabPageCountries.Size = new System.Drawing.Size(863, 478);
             this.tabPageCountries.TabIndex = 0;
             this.tabPageCountries.Text = "Countries";
             this.tabPageCountries.UseVisualStyleBackColor = true;
@@ -214,7 +221,7 @@ namespace Lab_12_app
             this.statusStripImg.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStripImg.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelImg});
-            this.statusStripImg.Location = new System.Drawing.Point(3, 455);
+            this.statusStripImg.Location = new System.Drawing.Point(3, 453);
             this.statusStripImg.Name = "statusStripImg";
             this.statusStripImg.Size = new System.Drawing.Size(857, 22);
             this.statusStripImg.TabIndex = 0;
@@ -579,7 +586,7 @@ namespace Lab_12_app
             this.tabPageCities.Location = new System.Drawing.Point(4, 25);
             this.tabPageCities.Name = "tabPageCities";
             this.tabPageCities.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCities.Size = new System.Drawing.Size(863, 478);
+            this.tabPageCities.Size = new System.Drawing.Size(863, 480);
             this.tabPageCities.TabIndex = 1;
             this.tabPageCities.Text = "Cities";
             this.tabPageCities.UseVisualStyleBackColor = true;
@@ -614,14 +621,14 @@ namespace Lab_12_app
             this.вставкаToolStripButton,
             this.toolStripSeparator1,
             this.справкаToolStripButton});
-            this.bindingNavigatorCities.Location = new System.Drawing.Point(3, 448);
+            this.bindingNavigatorCities.Location = new System.Drawing.Point(3, 446);
             this.bindingNavigatorCities.MoveFirstItem = this.bindingNavigatorMoveFirstItem1;
             this.bindingNavigatorCities.MoveLastItem = this.bindingNavigatorMoveLastItem1;
             this.bindingNavigatorCities.MoveNextItem = this.bindingNavigatorMoveNextItem1;
             this.bindingNavigatorCities.MovePreviousItem = this.bindingNavigatorMovePreviousItem1;
             this.bindingNavigatorCities.Name = "bindingNavigatorCities";
             this.bindingNavigatorCities.PositionItem = this.bindingNavigatorPositionItem1;
-            this.bindingNavigatorCities.Size = new System.Drawing.Size(857, 27);
+            this.bindingNavigatorCities.Size = new System.Drawing.Size(857, 31);
             this.bindingNavigatorCities.TabIndex = 1;
             this.bindingNavigatorCities.Text = "bindingNavigator1";
             // 
@@ -631,7 +638,7 @@ namespace Lab_12_app
             this.bindingNavigatorAddNewItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem1.Image")));
             this.bindingNavigatorAddNewItem1.Name = "bindingNavigatorAddNewItem1";
             this.bindingNavigatorAddNewItem1.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem1.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorAddNewItem1.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorAddNewItem1.Text = "Добавить";
             // 
             // citiesBindingSource
@@ -642,7 +649,7 @@ namespace Lab_12_app
             // bindingNavigatorCountItem1
             // 
             this.bindingNavigatorCountItem1.Name = "bindingNavigatorCountItem1";
-            this.bindingNavigatorCountItem1.Size = new System.Drawing.Size(55, 24);
+            this.bindingNavigatorCountItem1.Size = new System.Drawing.Size(55, 28);
             this.bindingNavigatorCountItem1.Text = "для {0}";
             this.bindingNavigatorCountItem1.ToolTipText = "Общее число элементов";
             // 
@@ -652,7 +659,7 @@ namespace Lab_12_app
             this.bindingNavigatorDeleteItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem1.Image")));
             this.bindingNavigatorDeleteItem1.Name = "bindingNavigatorDeleteItem1";
             this.bindingNavigatorDeleteItem1.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem1.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorDeleteItem1.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorDeleteItem1.Text = "Удалить";
             // 
             // bindingNavigatorMoveFirstItem1
@@ -661,7 +668,7 @@ namespace Lab_12_app
             this.bindingNavigatorMoveFirstItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem1.Image")));
             this.bindingNavigatorMoveFirstItem1.Name = "bindingNavigatorMoveFirstItem1";
             this.bindingNavigatorMoveFirstItem1.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem1.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveFirstItem1.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveFirstItem1.Text = "Переместить в начало";
             // 
             // bindingNavigatorMovePreviousItem1
@@ -670,13 +677,13 @@ namespace Lab_12_app
             this.bindingNavigatorMovePreviousItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem1.Image")));
             this.bindingNavigatorMovePreviousItem1.Name = "bindingNavigatorMovePreviousItem1";
             this.bindingNavigatorMovePreviousItem1.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem1.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMovePreviousItem1.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMovePreviousItem1.Text = "Переместить назад";
             // 
             // bindingNavigatorSeparator3
             // 
             this.bindingNavigatorSeparator3.Name = "bindingNavigatorSeparator3";
-            this.bindingNavigatorSeparator3.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator3.Size = new System.Drawing.Size(6, 31);
             // 
             // bindingNavigatorPositionItem1
             // 
@@ -691,7 +698,7 @@ namespace Lab_12_app
             // bindingNavigatorSeparator4
             // 
             this.bindingNavigatorSeparator4.Name = "bindingNavigatorSeparator4";
-            this.bindingNavigatorSeparator4.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator4.Size = new System.Drawing.Size(6, 31);
             // 
             // bindingNavigatorMoveNextItem1
             // 
@@ -699,7 +706,7 @@ namespace Lab_12_app
             this.bindingNavigatorMoveNextItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem1.Image")));
             this.bindingNavigatorMoveNextItem1.Name = "bindingNavigatorMoveNextItem1";
             this.bindingNavigatorMoveNextItem1.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem1.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveNextItem1.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveNextItem1.Text = "Переместить вперед";
             // 
             // bindingNavigatorMoveLastItem1
@@ -708,13 +715,13 @@ namespace Lab_12_app
             this.bindingNavigatorMoveLastItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem1.Image")));
             this.bindingNavigatorMoveLastItem1.Name = "bindingNavigatorMoveLastItem1";
             this.bindingNavigatorMoveLastItem1.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem1.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveLastItem1.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveLastItem1.Text = "Переместить в конец";
             // 
             // bindingNavigatorSeparator5
             // 
             this.bindingNavigatorSeparator5.Name = "bindingNavigatorSeparator5";
-            this.bindingNavigatorSeparator5.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator5.Size = new System.Drawing.Size(6, 31);
             // 
             // создатьToolStripButton
             // 
@@ -722,7 +729,7 @@ namespace Lab_12_app
             this.создатьToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("создатьToolStripButton.Image")));
             this.создатьToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.создатьToolStripButton.Name = "создатьToolStripButton";
-            this.создатьToolStripButton.Size = new System.Drawing.Size(29, 24);
+            this.создатьToolStripButton.Size = new System.Drawing.Size(29, 28);
             this.создатьToolStripButton.Text = "&Создать";
             // 
             // открытьToolStripButton
@@ -731,7 +738,7 @@ namespace Lab_12_app
             this.открытьToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("открытьToolStripButton.Image")));
             this.открытьToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.открытьToolStripButton.Name = "открытьToolStripButton";
-            this.открытьToolStripButton.Size = new System.Drawing.Size(29, 24);
+            this.открытьToolStripButton.Size = new System.Drawing.Size(29, 28);
             this.открытьToolStripButton.Text = "&Открыть";
             // 
             // сохранитьToolStripButton
@@ -740,7 +747,7 @@ namespace Lab_12_app
             this.сохранитьToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("сохранитьToolStripButton.Image")));
             this.сохранитьToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.сохранитьToolStripButton.Name = "сохранитьToolStripButton";
-            this.сохранитьToolStripButton.Size = new System.Drawing.Size(29, 24);
+            this.сохранитьToolStripButton.Size = new System.Drawing.Size(29, 28);
             this.сохранитьToolStripButton.Text = "&Сохранить";
             this.сохранитьToolStripButton.Click += new System.EventHandler(this.сохранитьToolStripButton_Click);
             // 
@@ -750,13 +757,13 @@ namespace Lab_12_app
             this.печатьToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("печатьToolStripButton.Image")));
             this.печатьToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.печатьToolStripButton.Name = "печатьToolStripButton";
-            this.печатьToolStripButton.Size = new System.Drawing.Size(29, 24);
+            this.печатьToolStripButton.Size = new System.Drawing.Size(29, 28);
             this.печатьToolStripButton.Text = "&Печать";
             // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator.Size = new System.Drawing.Size(6, 31);
             // 
             // вырезатьToolStripButton
             // 
@@ -764,7 +771,7 @@ namespace Lab_12_app
             this.вырезатьToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("вырезатьToolStripButton.Image")));
             this.вырезатьToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.вырезатьToolStripButton.Name = "вырезатьToolStripButton";
-            this.вырезатьToolStripButton.Size = new System.Drawing.Size(29, 24);
+            this.вырезатьToolStripButton.Size = new System.Drawing.Size(29, 28);
             this.вырезатьToolStripButton.Text = "В&ырезать";
             // 
             // копироватьToolStripButton
@@ -773,7 +780,7 @@ namespace Lab_12_app
             this.копироватьToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("копироватьToolStripButton.Image")));
             this.копироватьToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.копироватьToolStripButton.Name = "копироватьToolStripButton";
-            this.копироватьToolStripButton.Size = new System.Drawing.Size(29, 24);
+            this.копироватьToolStripButton.Size = new System.Drawing.Size(29, 28);
             this.копироватьToolStripButton.Text = "&Копировать";
             // 
             // вставкаToolStripButton
@@ -782,13 +789,13 @@ namespace Lab_12_app
             this.вставкаToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("вставкаToolStripButton.Image")));
             this.вставкаToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.вставкаToolStripButton.Name = "вставкаToolStripButton";
-            this.вставкаToolStripButton.Size = new System.Drawing.Size(29, 24);
+            this.вставкаToolStripButton.Size = new System.Drawing.Size(29, 28);
             this.вставкаToolStripButton.Text = "Вст&авка";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
             // справкаToolStripButton
             // 
@@ -796,7 +803,7 @@ namespace Lab_12_app
             this.справкаToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("справкаToolStripButton.Image")));
             this.справкаToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.справкаToolStripButton.Name = "справкаToolStripButton";
-            this.справкаToolStripButton.Size = new System.Drawing.Size(29, 24);
+            this.справкаToolStripButton.Size = new System.Drawing.Size(29, 28);
             this.справкаToolStripButton.Text = "Спр&авка";
             // 
             // dataGridViewCities
@@ -814,7 +821,7 @@ namespace Lab_12_app
             this.dataGridViewCities.Name = "dataGridViewCities";
             this.dataGridViewCities.RowHeadersWidth = 51;
             this.dataGridViewCities.RowTemplate.Height = 24;
-            this.dataGridViewCities.Size = new System.Drawing.Size(857, 472);
+            this.dataGridViewCities.Size = new System.Drawing.Size(857, 474);
             this.dataGridViewCities.TabIndex = 0;
             this.dataGridViewCities.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridViewCities_DataBindingComplete);
             // 
@@ -875,15 +882,9 @@ namespace Lab_12_app
             this.errorProviderCountries.ContainerControl = this;
             this.errorProviderCountries.DataSource = this.countriesBindingSource;
             // 
-            // printToolStripMenuItem
-            // 
-            this.printToolStripMenuItem.Name = "printToolStripMenuItem";
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
-            this.printToolStripMenuItem.Text = "Print";
-            this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
-            // 
             // printPreviewDialog
             // 
+            this.printPreviewDialog.Document = this.printDocument1;
             this.printPreviewDialog.UseEXDialog = true;
             // 
             // printDocument1

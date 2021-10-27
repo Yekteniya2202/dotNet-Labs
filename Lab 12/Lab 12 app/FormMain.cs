@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -106,6 +107,14 @@ namespace Lab_12_app
         private void printToolStripMenuItem_Click(object sender, EventArgs e)
         {
             printPreviewDialog.ShowDialog();
+
+            PrintPreviewDialog ppd = new PrintPreviewDialog();
+            PrintDocument pd = new PrintDocument();
+            
+            pd.PrintPage += new PrintPageEventHandler
+                (this.printDocument1_PrintPage);
+            ppd.Document = pd;
+            ppd.ShowDialog();
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
@@ -40,6 +41,10 @@ namespace Lab11.Models
                         countries.Add(country);
                     }
                 }
+                catch (SqlException sqlex)
+                {
+                    throw new ApplicationException("Ошибка при взаимодействии с базой данных", sqlex);
+                }
                 finally
                 {
                     if (connection != null && connection.State == ConnectionState.Open) connection.Close();
@@ -61,6 +66,10 @@ namespace Lab11.Models
                     command.Parameters.Add("@CountryPolity", SqlDbType.NVarChar, 256).Value = country.CountryPolity;
                     connection.Open();
                     command.ExecuteNonQuery();
+                }
+                catch (SqlException sqlex)
+                {
+                    throw new ApplicationException("Ошибка при взаимодействии с базой данных", sqlex);
                 }
                 finally
                 {
@@ -84,6 +93,10 @@ namespace Lab11.Models
                     connection.Open();
                     command.ExecuteNonQuery();
                 }
+                catch (SqlException sqlex)
+                {
+                    throw new ApplicationException("Ошибка при взаимодействии с базой данных", sqlex);
+                }
                 finally
                 {
                     if (connection != null && connection.State == ConnectionState.Open) connection.Close();
@@ -103,6 +116,10 @@ namespace Lab11.Models
                     command.Parameters.Add("@CountryId", SqlDbType.Int).Value = countryId;
                     connection.Open();
                     command.ExecuteNonQuery();
+                }
+                catch (SqlException sqlex)
+                {
+                    throw new ApplicationException("Ошибка при взаимодействии с базой данных", sqlex);
                 }
                 finally
                 {

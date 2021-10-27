@@ -24,7 +24,16 @@ namespace Lab11_App
 
         private void toolStripCountriesButtonSelect_Click(object sender, EventArgs e)
         {
-            var countries = Country.List(_connection);
+            List<Country> countries = null;
+            try
+            { 
+                countries = Country.List(_connection);
+            }
+            catch (ApplicationException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
             listViewCountries.Items.Clear();
             for (int i = 0; i < countries.Count; i++)
             {
@@ -44,7 +53,14 @@ namespace Lab11_App
             };
             if (formCountry.ShowDialog() == DialogResult.OK)
             {
-                Country.Insert(_connection, formCountry.Country);
+                try
+                {
+                    Country.Insert(_connection, formCountry.Country);
+                }
+                catch (ApplicationException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 
@@ -56,19 +72,42 @@ namespace Lab11_App
             };
             if (formCountry.ShowDialog() == DialogResult.OK)
             {
-                Country.Update(_connection, formCountry.Country);
+                try
+                { 
+                    Country.Update(_connection, formCountry.Country);
+                }
+                catch (ApplicationException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 
 
         private void toolStripCountriesButtonDelete_Click(object sender, EventArgs e)
         {
-            Country.Delete(_connection, ((Country)listViewCountries.SelectedItems[0].Tag).CountryId);
+            try
+            {
+                Country.Delete(_connection, ((Country)listViewCountries.SelectedItems[0].Tag).CountryId);
+            }
+            catch (ApplicationException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void toolStripCitiesButtonSelect_Click(object sender, EventArgs e)
         {
-            var cities = City.List(_connection);
+            List<City> cities = null;
+            try
+            {
+                cities = City.List(_connection);
+            }
+            catch (ApplicationException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
             listViewCities.Items.Clear();
             for (int i = 0; i < cities.Count; i++)
             {
@@ -89,7 +128,14 @@ namespace Lab11_App
             };
             if (formCity.ShowDialog() == DialogResult.OK)
             {
-                City.Insert(_connection, formCity.City);
+                try
+                {
+                    City.Insert(_connection, formCity.City);
+                }
+                catch (ApplicationException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 
@@ -101,13 +147,29 @@ namespace Lab11_App
             };
             if (formCity.ShowDialog() == DialogResult.OK)
             {
-                City.Update(_connection, formCity.City);
+                try
+                { 
+                    City.Update(_connection, formCity.City);
+                }
+                catch (ApplicationException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 
         private void toolStripCitiesButtonDelete_Click(object sender, EventArgs e)
         {
-            City.Delete(_connection, ((City)listViewCities.SelectedItems[0].Tag).CityId);
+            try
+            {
+
+
+                City.Delete(_connection, ((City)listViewCities.SelectedItems[0].Tag).CityId);
+            }
+            catch (ApplicationException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

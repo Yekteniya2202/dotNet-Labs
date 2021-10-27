@@ -44,6 +44,10 @@ namespace Lab11_App.Models
                         cities.Add(city);
                     }
                 }
+                catch (SqlException sqlex)
+                {
+                    throw new ApplicationException("Ошибка при взаимодействии с базой данных", sqlex);
+                }
                 finally
                 {
                     if (connection != null && connection.State == ConnectionState.Open) connection.Close();
@@ -66,6 +70,10 @@ namespace Lab11_App.Models
                     command.Parameters.Add("@CountryId", SqlDbType.Int).Value = city.CountryId;
                     connection.Open();
                     command.ExecuteNonQuery();
+                }
+                catch (SqlException sqlex)
+                {
+                    throw new ApplicationException("Ошибка при взаимодействии с базой данных", sqlex);
                 }
                 finally
                 {
@@ -90,6 +98,10 @@ namespace Lab11_App.Models
                     connection.Open();
                     command.ExecuteNonQuery();
                 }
+                catch (SqlException sqlex)
+                {
+                    throw new ApplicationException("Ошибка при взаимодействии с базой данных", sqlex);
+                }
                 finally
                 {
                     if (connection != null && connection.State == ConnectionState.Open) connection.Close();
@@ -109,6 +121,10 @@ namespace Lab11_App.Models
                     command.Parameters.Add("@CityId", SqlDbType.Int).Value = cityId;
                     connection.Open();
                     command.ExecuteNonQuery();
+                }
+                catch (SqlException sqlex)
+                {
+                    throw new ApplicationException("Ошибка при взаимодействии с базой данных", sqlex);
                 }
                 finally
                 {
